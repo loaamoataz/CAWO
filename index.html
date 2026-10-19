@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مزرعة البقرة — ألبان ولحوم طازجة لحد باب بيتك</title>
+<link href="https://fonts.googleapis.com/css2?family=Lalezar&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="#top"><span class="cow"></span>مزرعة البقرة</a>
+<nav><a href="#milk">الألبان</a><a href="#sub">الاشتراك</a><a href="#cheese">الجبن</a><a href="#meat">اللحوم</a><a href="#cows">البقرات</a><a href="#zone">التوصيل</a></nav>
+<button id="cartBtn" onclick="openCart()">🧺 السلة (<span id="cc">0</span>)</button>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap">
+<div class="bubble"><h1>من خير مزرعتنا لحد باب بيتك</h1><p>لبن في إزازة ازاز زي زمان، وجبنة بلدي، ولحوم طازجة من بقرات نعرفها بالاسم.</p><a class="btn" href="#sub">اشترك في لبن كل صباح</a></div>
+<div class="cow" id="heroCow" aria-label="بقرة المزرعة"></div>
+</div><div class="hero-grass"></div></section>
+
+<div class="wrap"><div class="cats">
+<a class="cat c1" href="#meat"><i>🥩</i><h3>اللحوم والمزرعة</h3></a>
+<a class="cat c2" href="#milk"><i>🥛</i><h3>ألبان كل يوم</h3></a>
+<a class="cat c3" href="#cheese"><i>🧀</i><h3>جبن بلدي</h3></a>
+<a class="cat c4" href="#sub"><i>🚲</i><h3>اشتراك الإزايز</h3></a>
+</div></div>
+
+<section class="sec milkbg" id="milk" style="margin-top:50px"><div class="wrap">
+<h2>ألبان كل يوم</h2><p class="sub">لبن طبيعي ونكهات بدون مواد حافظة، في إزازة ازاز نص لتر أو لتر.</p>
+<div class="grid" id="milkGrid"></div></div></section>
+
+<section class="sec" id="sub"><div class="wrap">
+<h2>اشتراك اللبن الشهري</h2><p class="sub">اللبناوي بيعدي كل صبح زي زمان. رجّع الإزازة الفاضية واخصم من الفاتورة.</p>
+<div class="builder">
+<div>
+<h3>اختار النكهة</h3><div class="chips" id="sFlavor"></div>
+<h3>كام إزازة في المرة؟</h3><div class="step"><button onclick="setQ(-1)" aria-label="أقل">−</button><b id="sq">1</b><button onclick="setQ(1)" aria-label="أكتر">+</button><span>لتر</span></div>
+<h3>مواعيد المرور</h3><div class="chips" id="sDays"></div>
+<h3>إزايز زمان</h3><div class="chips"><button class="chip" id="sRet" aria-pressed="true" onclick="toggleRet()">رجّع الفاضي واخصم ٢ جنيه للإزازة</button></div>
+<h3>وقف مؤقت</h3><p style="margin:0">مسافر؟ أوقف الاشتراك من الواتساب قبلها بيوم من غير ما يتلغي.</p>
+</div>
+<div class="sum"><svg class="bottle" id="sBottle" width="70" height="110" viewBox="0 0 70 110"></svg>
+<p id="sName"></p><div class="big" id="sTotal"></div><p id="sNote"></p>
+<button class="btn" style="border:0" onclick="addSub()">ابدأ الاشتراك</button></div>
+</div></div></section>
+
+<section class="sec cheese" id="cheese"><div class="wrap">
+<h2>جبن بلدي</h2><p class="sub">متعمل في المزرعة، والسعر بالكيلو أو بالنص كيلو.</p>
+<div class="grid" id="cheeseGrid"></div></div></section>
+
+<section class="sec" id="meat"><div class="wrap">
+<h2>اللحوم والمزرعة</h2><p class="sub">كل قطعة عليها تاريخ الذبح ووزنها قبل الشحن. والمتاح النهاردة بس هو اللي بيظهر.</p>
+<div class="grid" id="meatGrid"></div></div></section>
+
+<section class="sec" id="cows" style="background:var(--grass);border-radius:60px 60px 0 0;color:#1f3312"><div class="wrap">
+<h2 style="color:#1f3312">قابل بقراتنا</h2><p class="sub">لكل لبن بقرة بتديه. بنكتب اسمها على الإزازة.</p>
+<div class="cows">
+<div class="cowcard" style="color:#3b2417"><div class="cow"></div><h3>زهرة</h3><small>أم لبن السادة. هادية وبتحب البرسيم.</small></div>
+<div class="cowcard" style="color:#3b2417"><div class="cow"></div><h3>شوكلاتة</h3><small>مصدر لبن الشوكولاتة. مشاغبة وبتحب التمشية.</small></div>
+<div class="cowcard" style="color:#3b2417"><div class="cow"></div><h3>فرفورة</h3><small>أول من يصحى. بتحب تسمع الراديو.</small></div>
+</div></div></section>
+
+<section class="sec deliv" id="zone" style="margin-top:0"><div class="wrap">
+<h2>هنوصلك؟</h2><p class="sub" style="margin-bottom:20px">اكتب منطقتك وهنقولك مواعيد المرور.</p>
+<div class="zone"><input id="zin" placeholder="مثال: مدينة نصر" aria-label="منطقتك"><button class="btn" style="border:0" onclick="checkZone()">اتأكد</button></div>
+<div id="zmsg" role="status"></div>
+<div class="route" aria-hidden="true"><span>🚲</span>🥛🥛🏠</div>
+</div></section>
+</main>
+
+<footer><div class="wrap">
+<div class="logo"><span class="cow" style="width:44px"></span>مزرعة البقرة</div>
+<p>الدفع كاش عند الاستلام أو محفظة إلكترونية. اتصل أو ابعت واتساب لأي طلب.</p>
+<p style="opacity:.7;font-size:14px">صُنع بحب في المزرعة</p>
+</div></footer>
+
+<a class="wa" id="waFloat" href="#" target="_blank" rel="noopener">واتساب</a>
+
+<aside id="drawer" aria-label="السلة">
+<button class="close" onclick="closeCart()" aria-label="إغلاق">×</button>
+<h3 style="font-size:28px;color:var(--brown)">سلتك</h3>
+<div id="items"></div>
+<p style="font-size:20px;margin:10px 0"><b>الإجمالي:</b> <span id="tot">0</span> جنيه</p>
+<p style="font-size:14px;opacity:.8;margin:0 0 10px">رسوم التوصيل بتتحدد حسب منطقتك. الطلب بيتأكد على واتساب.</p>
+<button class="btn" style="border:0" onclick="sendOrder()">أكد الطلب على واتساب</button>
+</aside>
+
+<div id="toast" aria-live="polite"><div class="say" id="say"></div><div class="cow"></div></div>
+
+<script src="script.js"></script>
+</body>
+</html>
